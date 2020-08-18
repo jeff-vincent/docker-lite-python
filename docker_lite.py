@@ -30,8 +30,8 @@ class DockerLite:
 
     def kill_container(self, existing_container_name):
         container = self.client.containers.get(existing_container_name)
-		container.stop()
-		container.remove()
+	container.stop()
+	container.remove()
         return 200
 
 
