@@ -1,5 +1,5 @@
 # docker-lite-python
-A simple, Python-based Docker interface. Requires a local instance of Jenkins.
+A simple, Python-based Docker interface. Requires a local instance of Docker.
 
 ## Usage:
 ```
