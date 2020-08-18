@@ -20,6 +20,7 @@ class DockerPy:
 		return response
 		
 	def kill_container(self, container_name):
-		response = self.client.containers.stop(container_name)
-		response1 = self.client.containers.remove(container_name)
+		container = self.client.containers.get(container_name)
+		response = self.client.containers.stop(container)
+		response1 = self.client.containers.remove(container)
 		return (response, response1)
