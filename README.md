@@ -2,7 +2,8 @@
 A simple, Python-based Docker interface. 
 
 ## Usage:
-```from docker_light import DockerLite
+```
+from docker_light import DockerLite
 dl = DockerLite()
 
 # start an Alpine image and keep it running
