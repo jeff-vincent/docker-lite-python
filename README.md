@@ -14,6 +14,10 @@ A simple, Python-based Docker interface. Requires a local instance of Docker.
 
 >>>dl.exec_into_running_container('alpine-container', 'echo "hello world"')
 ExecResult(exit_code=0, output=b'hello world\n')
+
+# tear down that container!
+>>>dl.kill_container('alpine-container')
+200
 ```
 
 
