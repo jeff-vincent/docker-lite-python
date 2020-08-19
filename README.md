@@ -58,10 +58,11 @@ run a Docker container called 'my-container' based on a Docker image called 'my-
 
 `dl.run_container('my-image', 'my-container')` 
 
-`dl.get_container('my-container')` # get a container called 'my-container' by its unique name
-
 run a terminal command in a running Docker container called 'my-container'. Be creative
 
 `dl.exec_into_running_container('my-container', 'echo "Hello World!"')`
+
+`container = dl.get_container('my-container')` # get a container called 'my-container' by its unique name
+ - [Python Docker SDK documentation on container objects here](https://docker-py.readthedocs.io/en/stable/containers.html#container-objects)
 
 `dl.kill_container('my-container')` # kill a container called 'my-container' by its unique name
