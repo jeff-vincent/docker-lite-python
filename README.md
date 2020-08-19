@@ -1,5 +1,11 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 # docker-lite-python
-A simple, Python-based Docker interface. Requires a local instance of Docker.
+A simple, Python-based Docker interface built on top of the [Docker SDK for Python](https://docker-py.readthedocs.io/en/stable/). Requires a local instance of Docker.
+
+**[Quick Start](#quick-start)** | **[Reference](#reference)** | **[Examples](#examples)**
+
 
 ## Quick Start:
 ```
