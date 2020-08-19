@@ -3,7 +3,7 @@ A simple, Python-based Docker interface. Requires a local instance of Docker.
 
 ## Quick Start:
 ```
-$ python3
+$ sudo python3
 >>>from docker_light import DockerLite
 >>>dl = DockerLite()
 ```
