@@ -49,18 +49,18 @@ from docker_lite import DockerLite
 
 dl = DockerLite()
 ```
-`dl.build_image('./Dockerfile', 'my-image')` # build an image from a Dockerfile
+`dl.build_image('./Dockerfile', 'my-image')` # build a Docker image called 'my-image' from a Dockerfile
 
-`dl.list_containers(all=True)` # list all containers
+`dl.list_containers(all=True)` # list all containers. Default is to list running containers
 
 run a Docker container called 'my-container' based on a Docker image called 'my-image'
 
 `dl.run_container('my-image', 'my-container')` 
 
-`dl.get_container('my-container')` # get container by name
+`dl.get_container('my-container')` # get a container called 'my-container' by its unique name
 
-run a terminal command in a running Docker container
+run a terminal command in a running Docker container. Be creative
 
 `dl.exec_into_running_container('my-container', 'echo "Hello World!"')`
 
-`dl.kill_container('my-container')` # kill a container by name
+`dl.kill_container('my-container')` # kill a container called 'my-container' by its unique name
