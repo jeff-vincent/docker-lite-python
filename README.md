@@ -24,14 +24,24 @@ tear down that container!
 
 ## Reference:
 
-| Available Methods | Args|Overview|
-|--------|-----|----|
-|`build_image()` | `*path_to_dockerfile*: string`|`Build a Docker image from a local Dockerfile.`|
-|| `*resulting_image_name*: string`|
+| Methods | Args | Overview |
+|---------|------|----------|
+|`build_image()`|`*path_to_dockerfile*: string`|`Build a Docker image from a local Dockerfile.`|
+||`*resulting_image_name*: string`|
 ||||
-|` list_containers()`|`all: bool`|`List running containers by default.`|
-
-
+|`list_containers()`|`all: bool: default=False`|`List running containers by default.`|
+||||
+|`run_container()`|`*image_name*: string`|`Run a Docker container, optionally with a command.`|
+||`*resulting_container_name*: string`|
+||`*command*: string: The command to run. `|`Optional.`|
+||||
+|`get_container_by_name()`|`*existing_container_name*: string`|`Get a Docker container by name.`|
+||||
+|`exec_into_running_container()`|`*existing_container_name*: string`|`Run a command in an active container.`|
+||`*command*: string: The command to execute in the running Docker container.`|
+||||
+|`kill_container()`|`*existing_container_name*: string`|`Shut down and delete a container.`|
+||||
 
 ## Examples
 ```
@@ -41,11 +51,36 @@ dl = DockerLite()
 ```
 build an image from a Dockerfile
 
-`dl.build_image('./Dockerfile', 'my-container')`
+`dl.build_image('./Dockerfile', 'my-image')`
 
 list all containers
 
 `dl.list_containers(all=True)`
+
+run a Docker container called 'my-container' based on a Docker image called 'my-image'
+
+`dl.run_container('my-image', 'my-container')`
+
+get container by name 
+
+`dl.get_container('my-container')`
+
+run a terminal command in a running Docker container
+
+`dl.exec_into_running_container('my-container', 'echo "Hello World!"')`
+
+kill a container by name
+
+`dl.kill_container('my-container')`
+
+
+
+
+
+
+
+
+
 
 
 
