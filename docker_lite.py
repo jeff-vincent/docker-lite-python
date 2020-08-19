@@ -1,11 +1,9 @@
 import docker
 
-
 class DockerLite:
 
     def __init__(self):
         self.client = docker.from_env()
-
 
     def build_image(self, path_to_dockerfile, resulting_image_name):
         """A method to build a Docker image from a Dockerfile. 
@@ -18,7 +16,6 @@ class DockerLite:
         response = self.client.images.build(
                     path=path_to_dockerfile, tag=resulting_image_name)
         return response
-
 
     def list_containers(self, all=None):
         """A method for listing Docker containers. 
@@ -34,7 +31,6 @@ class DockerLite:
             response = self.client.containers.list()
         return response
 
-
     def get_container_by_name(self, existing_container_name):
         """A method for getting a Python object that represents
         a given Docker container.
@@ -46,7 +42,6 @@ class DockerLite:
         response = self.client.containers.get(existing_container_name)
         return response
 
-
     def run_container(self, image_name, resulting_container_name, command=None):
         """A method for running a Docker container. 
         Requires a name for the container.
@@ -54,7 +49,7 @@ class DockerLite:
             image_name: string: the name of the Docker image to run
                         can be local or in Docker Hub.
             resulting_container_name: string: the name to set to the container
-            command: string: the command to run at Docker container startup: optional
+            command: string: the command to run at startup: optional
         Returns:
             response: 
         """
@@ -64,7 +59,6 @@ class DockerLite:
                     command=command,
                     remove=True)
         return response
-
 
     def exec_into_running_container(self, existing_container_name, command):
         """A method for executing a command in a running Docker container.
@@ -77,7 +71,6 @@ class DockerLite:
         container = self.get_container_by_name(existing_container_name)
         response = container.exec_run(command)
         return response
-
 
     def kill_container(self, existing_container_name):
         """A methond for stopping and removing a Docker container.
