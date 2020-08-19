@@ -1,37 +1,67 @@
-## Welcome to GitHub Pages
+# docker-lite-python
+A simple, Python-based Docker interface. Requires a local instance of Docker.
 
-You can use the [editor on GitHub](https://github.com/jeff-vincent/docker-lite-python/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+## Quick Start:
+```
+$ python3
+>>>from docker_light import DockerLite
+>>>dl = DockerLite()
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+start an Alpine image and keep it running
+```
+>>>dl.run_container('alpine:latest', 'alpine-container', 'sleep infinity')
+```
+exec into the running container
+```
+>>>dl.exec_into_running_container('alpine-container', 'echo "Hello World!"')
+ExecResult(exit_code=0, output=b'Hello World!\n')
+```
+tear down that container!
+```
+>>>dl.kill_container('alpine-container')
+200
+```
 
-### Jekyll Themes
+## Reference:
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jeff-vincent/docker-lite-python/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+| Methods | Args | Overview |
+|---------|------|----------|
+|`build_image()`|`*path_to_dockerfile*: string`|`Build a Docker image from a local Dockerfile.`|
+||`*resulting_image_name*: string`|
+||||
+|`list_containers()`|`all: bool: default=False`|`List running containers by default.`|
+||||
+|`run_container()`|`*image_name*: string`|`Run a Docker container, optionally with a command.`|
+||`*resulting_container_name*: string`|
+||`*command*: string: The command to run. `|`Optional.`|
+||||
+|`get_container_by_name()`|`*existing_container_name*: string`|`Get a Docker container by name.`|
+||||
+|`exec_into_running_container()`|`*existing_container_name*: string`|`Run a command in an active container.`|
+||`*command*: string: The command to execute in the running Docker container.`|
+||||
+|`kill_container()`|`*existing_container_name*: string`|`Shut down and delete a container.`|
+||||
 
-### Support or Contact
+## Examples
+```
+from docker_lite import DockerLite
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+dl = DockerLite()
+```
+`dl.build_image('./Dockerfile', 'my-image')` # build a Docker image called 'my-image' from a Dockerfile
+
+`dl.list_containers(all=True)` # list all containers. Default is to list running containers
+
+run a Docker container called 'my-container' based on a Docker image called 'my-image'
+
+`dl.run_container('my-image', 'my-container')` 
+
+`dl.get_container('my-container')` # get a container called 'my-container' by its unique name
+
+run a terminal command in a running Docker container called 'my-container'. Be creative
+
+`dl.exec_into_running_container('my-container', 'echo "Hello World!"')`
+
+`dl.kill_container('my-container')` # kill a container called 'my-container' by its unique name
