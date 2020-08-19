@@ -14,8 +14,8 @@ start an Alpine image and keep it running
 ```
 exec into the running container
 ```
->>>dl.exec_into_running_container('alpine-container', 'echo "hello world"')
-ExecResult(exit_code=0, output=b'hello world\n')
+>>>dl.exec_into_running_container('alpine-container', 'echo "Hello World!"')
+ExecResult(exit_code=0, output=b'Hello World!\n')
 ```
 tear down that container!
 ```
