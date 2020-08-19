@@ -3,6 +3,7 @@ A simple, Python-based Docker interface. Requires a local instance of Docker.
 
 ## Quick Start:
 ```
+$ python3
 >>>from docker_light import DockerLite
 >>>dl = DockerLite()
 ```
@@ -59,7 +60,7 @@ run a Docker container called 'my-container' based on a Docker image called 'my-
 
 `dl.get_container('my-container')` # get a container called 'my-container' by its unique name
 
-run a terminal command in a running Docker container. Be creative
+run a terminal command in a running Docker container called 'my-container'. Be creative
 
 `dl.exec_into_running_container('my-container', 'echo "Hello World!"')`
 
