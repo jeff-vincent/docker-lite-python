@@ -18,7 +18,7 @@ $ sudo python3
 >>>dl = DockerLite()
 ```
 
-start an Alpine image and keep it running
+start an Alpine container and keep it running
 ```
 >>>dl.run_container('alpine:latest', 'alpine-container', 'sleep infinity')
 ```
