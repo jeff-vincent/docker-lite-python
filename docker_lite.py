@@ -74,7 +74,7 @@ class DockerLite:
         Returns:
             response: 
         """
-        container = self.get_container(existing_container_name)
+        container = self.get_container_by_name(existing_container_name)
         response = container.exec_run(command)
         return response
 
@@ -85,8 +85,8 @@ class DockerLite:
             existing_container_name: string: the container to kill
         Returns:
             200
-        """
-        container = self.get_container(existing_container_name)
+        Than"""
+        container = self.get_container_by_name(existing_container_name)
         container.stop()
         container.remove()
         return 200
