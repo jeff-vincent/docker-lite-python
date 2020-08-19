@@ -4,7 +4,9 @@
 
 
 # docker-lite-python
-A simple, Python-based Docker interface built on top of the [Docker SDK for Python](https://docker-py.readthedocs.io/en/stable/). Requires a local instance of Docker.
+A simple, Python-based Docker interface built on top of the [Docker SDK for Python](https://docker-py.readthedocs.io/en/stable/). 
+Intended to programmatically spin up, pass communications to, and ultimately tear down single Docker containers.
+Requires a local instance of Docker.
 
 **[Quick Start](#quick-start)** | **[Reference](#reference)** | **[Examples](#examples)**
 
