@@ -44,7 +44,7 @@ tear down that container!
 |`kill_container()`|`*existing_container_name*: string`|`Shut down and delete a container.`|
 ||||
 
-## Examples
+## Examples:
 ```
 from docker_lite import DockerLite
 
