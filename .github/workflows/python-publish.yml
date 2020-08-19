@@ -5,7 +5,7 @@ name: docker-lite-python
 
 on:
   release: 0.0.1
-    types: [created]
+    types:
 
 jobs:
   deploy:
