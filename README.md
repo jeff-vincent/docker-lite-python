@@ -28,12 +28,12 @@ tear down that container!
 | Methods | Args | Overview |
 |---------|------|----------|
 |`build_image()`|`*path_to_dockerfile*: string`|`Build a Docker image from a local Dockerfile.`|
-||`*resulting_image_name*: string`|
+||`*resulting_image_name*: string`|`Enforces best practice of explicitly naming images.`|
 ||||
 |`list_containers()`|`*all*: bool: default=False`|`List running containers by default.`|
 ||||
 |`run_container()`|`*image_name*: string`|`Run a Docker container, optionally with a command.`|
-||`*resulting_container_name*: string`|
+||`*resulting_container_name*: string`|`Enforces best practice of explicitly naming containers.`|
 ||`*command*: string: The command to run. `|`Optional.`|
 ||||
 |`get_container_by_name()`|`*existing_container_name*: string`|`Get a Docker container by name.`|
