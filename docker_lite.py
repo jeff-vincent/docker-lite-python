@@ -60,26 +60,26 @@ class DockerLite:
                     remove=True)
         return response
 
-    def exec_into_running_container(self, existing_container_name, command):
-        """A method for executing a command in a running Docker container.
-        Args:
-            existing_container_name: string: the container in which to execute the command
-            command: string: the command to run in the Docker container
-        Returns:
-            response: 
-        """
-        container = self.get_container_by_name(existing_container_name)
-        response = container.exec_run(command)
-        return response
+#     def exec_into_running_container(self, existing_container_name, command):
+#         """A method for executing a command in a running Docker container.
+#         Args:
+#             existing_container_name: string: the container in which to execute the command
+#             command: string: the command to run in the Docker container
+#         Returns:
+#             response: 
+#         """
+#         container = self.get_container_by_name(existing_container_name)
+#         response = container.exec_run(command)
+#         return response
 
-    def kill_container(self, existing_container_name):
-        """A methond for stopping and removing a Docker container.
-        Args:
-            existing_container_name: string: the container to tear down
-        Returns:
-            0
-        """
-        container = self.get_container_by_name(existing_container_name)
-        container.stop()
-        container.remove()
-        return 0
+#     def kill_container(self, existing_container_name):
+#         """A methond for stopping and removing a Docker container.
+#         Args:
+#             existing_container_name: string: the container to tear down
+#         Returns:
+#             0
+#         """
+#         container = self.get_container_by_name(existing_container_name)
+#         container.stop()
+#         container.remove()
+#         return 0
