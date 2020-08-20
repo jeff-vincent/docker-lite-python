@@ -74,12 +74,12 @@ class DockerLite:
 
     def kill_container(self, existing_container_name):
         """A methond for stopping and removing a Docker container.
-        Args: 
+        Args:
             existing_container_name: string: the container to kill
         Returns:
-            200
-        Than"""
+            0
+        """
         container = self.get_container_by_name(existing_container_name)
         container.stop()
         container.remove()
-        return 200
+        return 0
