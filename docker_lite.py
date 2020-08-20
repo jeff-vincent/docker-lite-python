@@ -75,7 +75,7 @@ class DockerLite:
     def kill_container(self, existing_container_name):
         """A methond for stopping and removing a Docker container.
         Args:
-            existing_container_name: string: the container to kill
+            existing_container_name: string: the container to tear down
         Returns:
             0
         """
