@@ -22,6 +22,9 @@ start an Alpine container and keep it running
 ```
 >>>dl.run_container('alpine:latest', 'alpine-container', 'sleep infinity')
 ```
+>(Currently this is run in the foreground, so you will need to access the 
+>container in a separate terminal)
+
 exec into the running container
 ```
 >>>dl.exec_into_running_container('alpine-container', 'echo "Hello World!"')
