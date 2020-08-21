@@ -21,4 +21,4 @@ jobs:
     - name: Test with pytest
       run: |
         python3 -m pip install pytest
-        sudo python3 -m pytest tests.py
+        sudo python -m pytest tests.py
