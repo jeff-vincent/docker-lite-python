@@ -1,5 +1,5 @@
 import docker
-from docker_lite_python.docker_lite import DockerLite
+from dlp.docker_lite_python.docker_lite import DockerLite
 
 dl = DockerLite()
 
