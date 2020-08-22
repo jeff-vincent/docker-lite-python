@@ -27,5 +27,6 @@ jobs:
         sudo apt update && sudo apt install docker-ce
     - name: Test with pytest
       run: |
+        pip install docker
         pip install pytest
         pytest .
