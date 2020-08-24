@@ -5,20 +5,27 @@ dl = DockerLite()
 CONTAINER_NAME = 'test-container'
 
 def test_run():
-        container = dl.run_container(
+    container = dl.run_container(
                 image_name='alpine',
                 resulting_container_name=CONTAINER_NAME)
-        assert container.name == CONTAINER_NAME
-        container.stop()
+    assert container.name == CONTAINER_NAME
+    container.stop()
 
 def test_exec():
-        container = dl.run_container(
+    container = dl.run_container(
                 image_name='alpine',
                 command='sleep infinity',
                 resulting_container_name=CONTAINER_NAME)
-        response = dl.exec_into_running_container(container.name, 'echo "Hello World!"')
-        assert "output=b'Hello World!\\n'" in str(response)
-        container.stop()
+    response = dl.exec_into_running_container(container.name, 'echo "Hello World!"')
+    assert "output=b'Hello World!\\n'" in str(response)
 
+def test_get():
+    container = dl.get_container_by_name(CONTAINER_NAME)
+    assert container.name == CONTAINER_NAME
 
+def test_list():
+    response = dl.list_containers(all=True)
+    container = response[0]
+    assert CONTAINER_NAME in container.name
+    container.stop()
 
