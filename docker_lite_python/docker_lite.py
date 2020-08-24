@@ -75,5 +75,18 @@ class DockerLite:
         """
         container = self.get_container_by_name(existing_container_name)
         container.stop()
-        container.remove()
+        return 0
+
+    def list_images(self):
+        image_list = self.client.images.list()
+        return image_list
+
+    def remove_unused_images(self):
+        response = self.client.images.prune()
+        return response
+
+    def remove_all_images(self):
+        image_list = self.list_images()
+        for image in image_list:
+            self.client.images.remove(image.id, force=True)
         return 0
