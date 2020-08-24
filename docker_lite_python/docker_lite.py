@@ -57,7 +57,8 @@ class DockerLite:
                     image=image_name,  
                     name=resulting_container_name, 
                     command=command,
-                    remove=True)
+                    remove=True,
+                    detach=True)
         return response
 
     def exec_into_running_container(self, existing_container_name, command):
