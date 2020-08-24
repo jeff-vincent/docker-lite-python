@@ -29,3 +29,7 @@ def test_list():
     assert CONTAINER_NAME in container.name
     container.stop()
 
+def test_remove_images():
+    response = dl.remove_all_images()
+    image_list = dl.list_images()
+    assert response == 0 and image_list == []
