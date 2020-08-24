@@ -30,7 +30,7 @@ ExecResult(exit_code=0, output=b'Hello World!\n')
 tear down that container!
 ```
 >>>dl.kill_container('alpine-container')
-200
+0
 ```
 
 ## Reference:
