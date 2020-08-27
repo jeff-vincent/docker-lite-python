@@ -8,7 +8,12 @@ A simple, Python-based Docker interface built on top of the [Docker SDK for Pyth
 Intended to programmatically spin up, pass communications to, and ultimately tear down single Docker containers.
 Requires a local instance of Docker.
 
-**[Quick Start](#quick-start)** | **[Reference](#reference)** | **[Examples](#examples)**
+**[Installation](#installation)** | **[Quick Start](#quick-start)** | **[Reference](#reference)** | **[Examples](#examples)**
+
+## Installation:
+```
+pip install docker-lite-python
+```
 
 
 ## Quick Start:
