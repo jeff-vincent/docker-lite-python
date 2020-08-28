@@ -11,7 +11,7 @@ class DockerLite:
             path_to_dockerfile: string: the path to the Dockerfile
             resulting_image_name: string: unique name for the image
         Returns:
-            response: 
+            response: Python object: A given image. 
         """
         response = self.client.images.build(
                     path=path_to_dockerfile, tag=resulting_image_name)
@@ -23,7 +23,7 @@ class DockerLite:
         Args:
             all: bool: optional
         Returns:
-            response: 
+            response: List: A list of container objects.
         """
         if all:
             response = self.client.containers.list(all=True)
@@ -51,7 +51,7 @@ class DockerLite:
             resulting_container_name: string: the name to set to the container
             command: string: the command to run at startup: optional
         Returns:
-            response: 
+            response: Python object: the container being run.
         """
         response = self.client.containers.run(
                     image=image_name,  
@@ -78,14 +78,33 @@ class DockerLite:
         return 0
 
     def list_images(self):
+        """A method for listing all images on the system.
+        Args:
+            None
+        Returns:
+            image_list: List: a list of Python objects 
+            representing all images on the system.
+        """
         image_list = self.client.images.list()
         return image_list
 
     def remove_unused_images(self):
-        response = self.client.images.prune()
-        return response
+        """A method for removing unused images.
+        Args:
+            None
+        Returns: 
+            0
+        """
+        self.client.images.prune()
+        return 0
 
     def remove_all_images(self):
+        """A method for removing ALL images.
+        Args:
+            None
+        Returns: 
+            0
+        """
         image_list = self.list_images()
         for image in image_list:
             self.client.images.remove(image.id, force=True)
