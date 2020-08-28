@@ -19,7 +19,7 @@ pip install docker-lite-python
 ## Quick Start:
 ```
 $ sudo python3
->>>from docker_light import DockerLite
+>>>from docker_light_python import DockerLite
 >>>dl = DockerLite()
 ```
 
