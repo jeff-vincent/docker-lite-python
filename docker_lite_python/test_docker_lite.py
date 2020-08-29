@@ -1,6 +1,6 @@
 import os
 import docker
-from docker_lite import DockerLite
+from docker_lite_python.docker_lite import DockerLite
 
 dl = DockerLite()
 CONTAINER_NAME = 'test-container'

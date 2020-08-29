@@ -8,13 +8,18 @@ A simple, Python-based Docker interface built on top of the [Docker SDK for Pyth
 Intended to programmatically spin up, pass communications to, and ultimately tear down single Docker containers.
 Requires a local instance of Docker.
 
-**[Quick Start](#quick-start)** | **[Reference](#reference)** | **[Examples](#examples)**
+**[Installation](#installation)** | **[Quick Start](#quick-start)** | **[Reference](#reference)** | **[Examples](#examples)**
+
+## Installation:
+```
+pip install docker-lite-python
+```
 
 
 ## Quick Start:
 ```
 $ sudo python3
->>>from docker_light import DockerLite
+>>>from docker_light_python import DockerLite
 >>>dl = DockerLite()
 ```
 
@@ -22,9 +27,6 @@ start an Alpine container and keep it running
 ```
 >>>dl.run_container('alpine:latest', 'alpine-container', 'sleep infinity')
 ```
->(Currently this is run in the foreground, so you will need to access the 
->container in a separate terminal)
-
 exec into the running container
 ```
 >>>dl.exec_into_running_container('alpine-container', 'echo "Hello World!"')
@@ -33,7 +35,7 @@ ExecResult(exit_code=0, output=b'Hello World!\n')
 tear down that container!
 ```
 >>>dl.kill_container('alpine-container')
-200
+0
 ```
 
 ## Reference:
@@ -54,8 +56,14 @@ tear down that container!
 |`exec_into_running_container()`|`*existing_container_name*: string`|`Run a command in an active container.`|
 ||`*command*: string: The command to execute in the running Docker container.`|
 ||||
-|`kill_container()`|`*existing_container_name*: string`|`Shut down and delete a container.`|
+|`list_images()`|`None`|`List all images in the local Docker instance.`|
 ||||
+|`remove_unused_images()`|`None`|`Equivalent of docker images prune`|
+||||
+|`remove_all_images()`|`None`|`Force removal of all images. Purge system.`|
+||||
+|`kill_container()`|`*existing_container_name*: string`|`Shut down and delete a container.`|
+|||`NOTE: kill_container() technically just stops the containers, as they are self-removing.`|
 
 ## Examples:
 ```
@@ -63,19 +71,37 @@ from docker_lite import DockerLite
 
 dl = DockerLite()
 ```
-`dl.build_image('./', 'my-image')` # build 'my-image' from a Dockerfile in the local directory
+build image, 'my-image,' from a Dockerfile in the local directory
 
-`dl.list_containers(all=True)` # list all containers. Default is to list running containers
+```
+dl.build_image('./', 'my-image')
+```
+
+list all containers. Default is to list running containers
+
+```
+containers = dl.list_containers(all=True)
+```
 
 run a Docker container called 'my-container' based on a Docker image called 'my-image'
 
-`dl.run_container('my-image', 'my-container')` 
+```
+my_container = dl.run_container('my-image', 'my-container')
+``` 
 
 run a terminal command in a running Docker container called 'my-container'. Be creative
 
-`dl.exec_into_running_container('my-container', 'echo "Hello World!"')`
+```
+output = dl.exec_into_running_container('my-container', 'echo "Hello World!"')
+```
 
-`container = dl.get_container('my-container')` # get a container called 'my-container' by its unique name
+get a container called 'my-container' by its unique name
+```
+container = dl.get_container('my-container')
+``` 
  - [Python Docker SDK documentation on container objects here](https://docker-py.readthedocs.io/en/stable/containers.html#container-objects)
 
-`dl.kill_container('my-container')` # kill a container called 'my-container' by its unique name
+kill a container called 'my-container' by its unique name
+```
+dl.kill_container('my-container')
+```
