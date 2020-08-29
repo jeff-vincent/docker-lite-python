@@ -10,6 +10,9 @@ Requires a local instance of Docker.
 
 **[Quick Start](#quick-start)** | **[Reference](#reference)** | **[Examples](#examples)**
 
+## Run in Docker
+`$ sudo docker build -t docker-lite .`
+`$ sudo docker run -it --name docker-lite  -p 5000:5000 --hostname controller -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker docker-lite`
 
 ## Quick Start:
 ```
