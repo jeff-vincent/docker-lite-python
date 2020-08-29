@@ -42,7 +42,7 @@ tear down that container!
 
 | Methods | Args | Overview |
 |---------|------|----------|
-|`build_image()`|`*path_to_dockerfile*: string`|`Build a Docker image from a local Dockerfile.`|
+|`build_image()`|`*path_to_dir*: string: The path to the build directory.`|`Build a Docker image from a local Dockerfile.`|
 ||`*resulting_image_name*: string`|`Enforces best practice of explicitly naming images.`|
 ||||
 |`list_containers()`|`*all*: bool: default=False`|`List running containers by default.`|
@@ -71,10 +71,12 @@ from docker_lite import DockerLite
 
 dl = DockerLite()
 ```
-build a Docker image called 'my-image' from a Dockerfile
+build image, 'my-image,' from a Dockerfile in the local directory
+
 ```
-dl.build_image('./Dockerfile', 'my-image')
+dl.build_image('./', 'my-image')
 ```
+
 list all containers. Default is to list running containers
 
 ```
