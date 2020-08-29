@@ -5,7 +5,7 @@ class DockerLite:
     def __init__(self):
         self.client = docker.from_env()
 
-    def build_image(self, path_to_dockerfile, resulting_image_name):
+    def build_image(self, path_to_dir, resulting_image_name):
         """A method to build a Docker image from a Dockerfile. 
         Args:
             path_to_dockerfile: string: the path to the Dockerfile
@@ -14,7 +14,8 @@ class DockerLite:
             response: 
         """
         response = self.client.images.build(
-                    path=path_to_dockerfile, tag=resulting_image_name)
+                        path=path_to_dir,
+                        tag=resulting_image_name)
         return response
 
     def list_containers(self, all=None):
