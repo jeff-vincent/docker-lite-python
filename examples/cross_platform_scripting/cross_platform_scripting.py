@@ -12,15 +12,15 @@ class ExampleAdapter:
 					path_to_dir=self.dfile_path, 
 					resulting_image_name='legacy-env')
 		container = dl.run_container(
-						image_name='legacy-env',
-						resulting_container_name='legacy-env',
-						command='sleep infinity')
+					image_name='legacy-env',
+					resulting_container_name='legacy-env',
+					command='sleep infinity')
 		return container
 
 	def pass_input(self, container_name, input):
 		intermediate_result = dl.exec_into_running_container(
-						existing_container_name=container_name,
-						command=example_input)
+					existing_container_name=container_name,
+					command=example_input)
 		return intermediate_result.output
 
 	def pass_output(self, intermediate_result):
