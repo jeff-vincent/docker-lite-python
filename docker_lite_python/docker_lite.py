@@ -43,7 +43,7 @@ class DockerLite:
         response = self.client.containers.get(existing_container_name)
         return response
 
-    def run_container(self, image_name, resulting_container_name, command=None):
+    def run_container(self, image_name, resulting_container_name, command=None, volumes=None):
         """A method for running a Docker container. 
         Requires a name for the container.
         Args:
@@ -59,7 +59,8 @@ class DockerLite:
                     name=resulting_container_name, 
                     command=command,
                     remove=True,
-                    detach=True)
+                    detach=True,
+                    volumes=None)
         return response
 
     def exec_into_running_container(self, existing_container_name, command):
