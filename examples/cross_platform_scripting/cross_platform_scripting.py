@@ -24,7 +24,7 @@ class ExampleAdapter:
 		return intermediate_result.output
 
 	def pass_output(self, intermediate_result):
-		adapted_result = intermediate_result + 'some more stuff in Python or beyond!'
+		adapted_result = intermediate_result + ' and some more stuff in Python or beyond!'
 		return adapted_result
 
 	def tidy_up(self):
