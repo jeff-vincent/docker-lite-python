@@ -19,8 +19,8 @@ class ExampleAdapter:
 
 	def pass_input(self, container_name, input):
 		intermediate_result = dl.exec_into_running_container(
-									existing_container_name=container_name,
-									command=example_input)
+						existing_container_name=container_name,
+						command=example_input)
 		return intermediate_result.output
 
 	def pass_output(self, intermediate_result):
