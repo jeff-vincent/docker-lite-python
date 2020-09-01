@@ -36,10 +36,10 @@ def main():
 	ea = ExampleAdapter()
 	parser = ArgumentParser()
 	# g++ -o qq qq.cpp
-    parser.add_argument('example_input1', help='type: string: compile the "sub-code."')
-    # ./qq
-    parser.add_argument('example_input2', help='type: string: run the "sub-code."')
-    args = parser.parse_args()
+	parser.add_argument('example_input1', help='type: string: compile the "sub-code."')
+	# ./qq
+	parser.add_argument('example_input2', help='type: string: run the "sub-code."')
+	args = parser.parse_args()
 	container = ea.generate_container()
 	intermediate_result = ea.pass_input(container.name, args.example_input1)
 	intermediate_result = ea.pass_input(container.name, args.example_input2)
